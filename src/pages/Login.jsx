@@ -36,7 +36,7 @@ const Login = () => {
                             <div className='text-sm text-[#00aff4]'>
                                 <Link to='/forget-password'>Forget your password?</Link>
                             </div>
-                            <button className='bg-[#5865F2] border-none w-full text-white py-3 rounded-sm mt-4'>Login</button>
+                            <Link to='/dashboard'><button className='bg-[#5865F2] border-none w-full text-white py-3 rounded-sm mt-4'>Login</button></Link>
                             <div className='text-gray-500 text-sm'>
                                 <p>Need an account?<span className='text-[#00aff4] ml-1'><Link to='/create-account'>Register</Link> </span></p>
                             </div>
