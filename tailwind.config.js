@@ -6,5 +6,5 @@ module.exports = {
       ginto: ['Ginto Nord'],
     },
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar')],
 };

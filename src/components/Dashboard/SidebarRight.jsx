@@ -4,6 +4,7 @@ import EmptyDmListImg from '../../supports/EmptyDmListImg'
 import FriendsImg from '../../supports/FriendsImg'
 import StageDiscoveryImg from '../../supports/StageDiscoveryImg'
 import NitroImg from '../../supports/NitroImg'
+import { Link } from 'react-router-dom'
 
 const SidebarRight = () => {
     return <div className='grid grid-rows-[repeat(12,_minmax(0,_1fr))] px-4 min-h-screen font-ginto text-[#797A7F]'>
@@ -14,24 +15,30 @@ const SidebarRight = () => {
                 </div>
             </div>
             <div className='mt-5'>
-                <div className='flex flex-row items-center p-2 mt-2 rounded-md text-white cursor-pointer hover:text-white bg-[#363942] transition-colors'>
-                    <div className='w-6 -mt-1'>
-                        <FriendsImg />
+                <Link to='/dashboard/friends'>
+                    <div className='flex flex-row items-center p-2 mt-2 rounded-md text-white cursor-pointer hover:text-white bg-[#363942] transition-colors'>
+                        <div className='w-6 -mt-1'>
+                            <FriendsImg />
+                        </div>
+                        <p className='ml-3 font-bold text-sm select-none'>Friends</p>
                     </div>
-                    <p className='ml-3 font-bold text-sm select-none'>Friends</p>
-                </div>
-                <div className='flex flex-row items-center p-2 mt-2 rounded-md cursor-pointer hover:text-white hover:bg-[#363942] transition-colors'>
-                    <div className='w-6 -mt-1'>
-                        <StageDiscoveryImg />
+                </Link>
+                <Link to='/dashboard/stage-discovery'>
+                    <div className='flex flex-row items-center p-2 mt-2 rounded-md cursor-pointer hover:text-white hover:bg-[#363942] transition-colors'>
+                        <div className='w-6 -mt-1'>
+                            <StageDiscoveryImg />
+                        </div>
+                        <p className='ml-3 font-bold text-sm select-none'>Stage Discovery</p>
                     </div>
-                    <p className='ml-3 font-bold text-sm select-none'>Stage Discovery</p>
-                </div>
-                <div className='flex flex-row items-center p-2 mt-2 rounded-md cursor-pointer hover:text-white hover:bg-[#363942] transition-colors'>
-                    <div className='w-6 -mt-1'>
-                        <NitroImg />
+                </Link>
+                <Link to='/dashboard/nitro'>
+                    <div className='flex flex-row items-center p-2 mt-2 rounded-md cursor-pointer hover:text-white hover:bg-[#363942] transition-colors'>
+                        <div className='w-6 -mt-1'>
+                            <NitroImg />
+                        </div>
+                        <p className='ml-3 font-bold text-sm select-none'>Nitro</p>
                     </div>
-                    <p className='ml-3 font-bold text-sm select-none'>Nitro</p>
-                </div>
+                </Link>
             </div>
         </div>
         <div className='row-start-4 row-span-full'>

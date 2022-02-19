@@ -9,8 +9,8 @@ import blockedFriendIcon from '../assets/blocked_users_icon.svg'
 
 const DashboardFriends = () => {
     return <div className='flex flex-row min-h-screen'>
-        <div className='grow max-w-sm flex flex-row'>
-            <div className='max-w-[80px] grow bg-[#212226] text-white'>
+        <div className='grow max-w-sm hidden md:flex flex-row'>
+            <div className='max-w-[80px] min-w-[80px] grow bg-[#212226] text-white'>
                 <SidebarLeft />
             </div>
             <div className='max-w-full grow bg-[#303136] text-white'>
@@ -37,22 +37,22 @@ const RightFriendsDashboard = () => {
                 <div className='w-6 -mt-1'>
                     <FriendsImg />
                 </div>
-                <p className='ml-3 font-bold text-sm select-none'>Friends</p>
+                <p className='ml-3 font-bold text-xs sm:text-sm select-none'>Friends</p>
             </div>
-            <div className='ml-6 p-3 cursor-pointer transition-colors hover:text-white' onClick={handleClickOnFriendStatus}>
-                <p className={`text-sm ${screen === 'Online' ? 'text-green-600 font-bold' : ''} transition-colors`}>Online</p>
+            <div className='hidden md:block ml-6 p-3 cursor-pointer transition-colors hover:text-white' onClick={handleClickOnFriendStatus}>
+                <p className={`text-xs sm:text-sm ${screen === 'Online' ? 'text-green-600 font-bold' : ''} transition-colors`}>Online</p>
             </div>
-            <div className='ml-6 p-3 cursor-pointer hover:text-white transition-colors' onClick={handleClickOnFriendStatus}>
-                <p className={`text-sm ${screen === 'All' ? 'text-green-600 font-bold' : ''} transition-colors`}>All</p>
+            <div className='hidden md:block ml-6 p-3 cursor-pointer hover:text-white transition-colors' onClick={handleClickOnFriendStatus}>
+                <p className={`text-xs sm:text-sm ${screen === 'All' ? 'text-green-600 font-bold' : ''} transition-colors`}>All</p>
             </div>
-            <div className='ml-6 p-3 cursor-pointer hover:text-white transition-colors' onClick={handleClickOnFriendStatus}>
-                <p className={`text-sm ${screen === 'Pending' ? 'text-green-600 font-bold' : ''} transition-colors`}>Pending</p>
+            <div className='hidden md:block ml-6 p-3 cursor-pointer hover:text-white transition-colors' onClick={handleClickOnFriendStatus}>
+                <p className={`text-xs sm:text-sm ${screen === 'Pending' ? 'text-green-600 font-bold' : ''} transition-colors`}>Pending</p>
             </div>
-            <div className='ml-6 p-3 cursor-pointer hover:text-white transition-colors' onClick={handleClickOnFriendStatus}>
-                <p className={`text-sm ${screen === 'Blocked' ? 'text-green-600 font-bold' : ''} transition-colors`}>Blocked</p>
+            <div className='hidden md:block ml-6 p-3 cursor-pointer hover:text-white transition-colors' onClick={handleClickOnFriendStatus}>
+                <p className={`text-xs sm:text-sm ${screen === 'Blocked' ? 'text-green-600 font-bold' : ''} transition-colors`}>Blocked</p>
             </div>
-            <div className='ml-6 p-3 cursor-pointer' onClick={handleClickOnFriendStatus}>
-                <p className={`text-sm ${screen === 'Add Friend' ? 'text-green-600 font-bold' : ''} transition-colors`}>Add Friend</p>
+            <div className='hidden md:block ml-6 p-3 cursor-pointer' onClick={handleClickOnFriendStatus}>
+                <p className={`text-xs sm:text-sm ${screen === 'Add Friend' ? 'text-green-600 font-bold' : ''} transition-colors`}>Add Friend</p>
             </div>
         </div>
         <FriendView viewToRender={screen} />
@@ -61,7 +61,7 @@ const RightFriendsDashboard = () => {
 
 const FriendView = ({ viewToRender }) => {
     return <div className='flex flex-row row-start-2 row-span-full transition-all' >
-        <div className={`min-w-[65%] h-full flex flex-col justify-between px-6`}>
+        <div className={`min-w-full md:min-w-[65%] h-full flex flex-col justify-between px-6`}>
             {
                 viewToRender === 'Add Friend' && <AddFriendView />
             }
@@ -78,10 +78,10 @@ const FriendView = ({ viewToRender }) => {
                 viewToRender === 'Blocked' && <BlockedFriendView />
             }
         </div>
-        <div className='w-[1px] bg-gray-600 relative'>
+        <div className='w-[1px] hidden lg:block bg-gray-600 relative'>
             <div className='absolute left-0 top-0 w-full h-full -mt-4 bg-gray-600'></div>
         </div>
-        <div className='grow text-white flex ml-4  flex-col py-6'>
+        <div className='grow text-white hidden lg:flex ml-4  flex-col py-6'>
             <div className='py-6'>
                 <h2 className='text-xl font-bold'>Active Now</h2>
             </div>
@@ -116,7 +116,7 @@ const AddFriendView = () => {
 
 const OnlineFriendView = () => {
     return <>
-        <div className='m-auto w-[400px]'>
+        <div className='m-auto md:w-[400px]'>
             <img src={noOnineFriendIcon} alt="" className='w-full' />
             <p className='mt-8 text-sm text-gray-500 text-center'>No one's around to play with Wumpus!</p>
         </div>
@@ -124,7 +124,7 @@ const OnlineFriendView = () => {
 }
 const AllFriendView = () => {
     return <>
-        <div className='m-auto w-[400px]'>
+        <div className='m-auto md:w-[400px]'>
             <img src={addFriendIcon} alt="" className='w-full' />
             <p className='mt-8 text-sm text-gray-500 text-center'>Wumpus is waiting on friends. You don't have to though!</p>
         </div>
@@ -132,7 +132,7 @@ const AllFriendView = () => {
 }
 const PendingFriendView = () => {
     return <>
-        <div className='m-auto w-[400px]'>
+        <div className='m-auto md:w-[400px]'>
             <img src={pendingFriendIcon} alt="" className='w-full' />
             <p className='mt-8 text-sm text-gray-500 text-center'>Wumpus is waiting on friends. You don't have to though!</p>
         </div>
@@ -140,7 +140,7 @@ const PendingFriendView = () => {
 }
 const BlockedFriendView = () => {
     return <>
-        <div className='m-auto w-[400px]'>
+        <div className='m-auto md:w-[400px]'>
             <img src={blockedFriendIcon} alt="" className='w-full' />
             <p className='mt-8 text-sm text-gray-500 text-center'>Wumpus is blocking toxic friends. You don't have to though!</p>
         </div>
